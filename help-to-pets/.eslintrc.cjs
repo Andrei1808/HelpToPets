@@ -1,36 +1,60 @@
 module.exports = {
-  root: true,
-  env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-  ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
-  rules: {
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "comma-dangle": ["error", "only-multiline"],
-    "react/prop-types": "off",
-    "react/display-name": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "prettier/prettier": ["error", { "endOfLine": "auto" }],
-    "@typescript-eslint/interface-name-prefix": "off",
-    "@typescript-eslint/ban-ts-comment": "error",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/no-var-requires": "off",
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
-  },
-  "settings": {
-    "react": {
-      "pragma": "React",
-      "version": "detect"
-    }
-  }
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "airbnb",
+        "airbnb/hooks",
+        "airbnb-typescript",
+        "plugin:prettier/recommended",
+    ],
+    "overrides": [
+        {
+            "env": {
+                "node": true
+            },
+            "files": [
+                ".eslintrc.{js,cjs}"
+            ],
+            "parserOptions": {
+                "sourceType": "script"
+            }
+        }
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        project: './tsconfig.json'
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "react",
+        "prettier",
+    ],
+    "rules": {
+        "@typescript-eslint/no-explicit-any": "error",
+        "no-underscore-dangle": "off",
+        "no-extraneous-dependencies": "off",
+        '@typescript-eslint/explicit-module-boundary-types': 'error',
+        "import/no-cycle": "off",
+        "react/jsx-props-no-spreading": "off",
+        '@typescript-eslint/typedef': ['error', {
+            variableDeclaration: true,
+            arrowParameter: false,
+            propertyDeclaration: true,
+            variableDeclarationIgnoreFunction: true, // Если хотите игнорировать функции
+            parameter: true, // Если хотите требовать типы у параметров функций
+        }],
+        "no-param-reassign": [
+            "error",
+            { "props": true, "ignorePropertyModificationsFor": ["state"] }
+        ],
+    },
 }

@@ -1,0 +1,56 @@
+.petsCard {
+  width: 32%;
+  max-width: 350px;
+  height: 250px;
+  box-shadow: 3px 3px 3px rgba(239, 241, 242, 1), -3px -3px 3px rgba(239, 241, 242, 1);
+  display: flex;
+  border-radius: 20px;
+  padding-left: 20px;
+  overflow: hidden;
+  background: white;
+
+  &:hover{
+    cursor: pointer;
+    transition-duration: 0.5s;
+    transform: scale(1.1);
+    background: rgba(165, 203, 224, 1);
+  }
+}
+
+.cardName {
+  background: rgba(165, 203, 224, 1);
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 20px;
+  color: white;
+  width: fit-content;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+.cardTitle {
+  width: 60%;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+.cardDescription {
+  width: 60%;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+.cardInfo {
+
+}
+
+.cardInfoWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width:79%;
+  height: 100%;
+}

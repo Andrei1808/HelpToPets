@@ -1,0 +1,78 @@
+@import '../src/common/styles/mixins';
+
+.wrapper {
+  width: 100%;
+  background: rgba(248, 250, 251, 1);
+  padding: 12rem 0;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  gap: 125px;
+  width: 75%;
+}
+
+.info {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  flex-flow: wrap;
+  row-gap: 1.5rem;
+}
+
+.titleInfo {
+  font-size: 35px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: rgba(82, 87, 96, 1);
+}
+
+.descriptionInfo {
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: rgba(82, 87, 96, 1);
+  text-align: justify;
+}
+
+.buttonInfo {
+  @include button(rgba(165, 203, 224, 1), rgba(255, 255, 255, 1), rgba(165, 203, 224, 1));
+
+  &:hover {
+    background: rgba(165, 203, 224, 0.7);
+  }
+
+}
+
+.benefits {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  justify-content: space-around;
+}
+
+.containerBenefits {
+  width: 47%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.75rem;
+}
+
+.imgBenefits {
+width: 2rem;
+}
+
+.titleBenefits {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.descriptionBenefits {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}

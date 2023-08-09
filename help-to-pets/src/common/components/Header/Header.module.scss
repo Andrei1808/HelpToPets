@@ -1,11 +1,13 @@
 .header {
-  background-color: rgba(162, 193, 214, 1);
+  background-color:transparent;
   height: 75px;
   width: 100%;
   position: fixed;
   display: flex;
   align-items: center;
+  z-index: 30;
 }
+//rgba(162, 193, 214, 1)
 
 .header__wrapper{
   width: 75%;
@@ -51,4 +53,9 @@
   &:hover{
     background-color: rgba(255, 255, 255, 0.2);
   }
+}
+
+.scrolled{
+  background: rgba(165, 203, 224, 0.7);
+  transition-duration: 1s;
 }
