@@ -1,0 +1,16 @@
+@import '../../styles/mixins';
+
+.main {
+  width: 100%;
+}
+
+.wrapper {
+  height: 100vh;
+  background: url("../../assets/Background/background-main-page.png") center center no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+
+

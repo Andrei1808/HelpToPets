@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './PetCard.module.scss';
-import { PetInterface } from '../../../utils/Interfaces';
+import { PetInterface } from '../../../../utils/Interfaces';
 
 function PetCard({ pet }: PetInterface): React.ReactElement {
   const { title, description, img, name } = pet;

@@ -1,0 +1,53 @@
+@import '../../../styles/mixins';
+
+.startScreen {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.startScreenInfo {
+
+}
+
+.logo {
+
+}
+
+.content {
+  width: 70%;
+}
+
+.titleMain {
+  font-size: 52px;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  margin-top: 27px;
+}
+
+.description {
+  font-size: 18px;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin: 18px 0;
+}
+
+.button {
+  @include button(rgba(50, 63, 141, 1), white, rgba(50, 63, 141, 1));
+  margin-right: 20px;
+
+  &:hover {
+    background: rgba(50, 63, 141, 0.7);
+  }
+}
+
+.buttonTransparent {
+  @include button(transparent, rgba(50, 63, 141, 1), rgba(50, 63, 141, 1));
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}

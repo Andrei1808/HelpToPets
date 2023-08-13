@@ -1,0 +1,48 @@
+
+.pets {
+  background: rgba(248, 250, 251, 1);
+  width: 100%;
+  padding: 140px 0 210px;
+  position: relative;
+}
+
+.petsCards {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 12.5%;
+}
+
+.title {
+  margin: 0 12.5% 50px;
+  text-align: left;
+  font-size: 26px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: rgba(82, 87, 96, 1);
+}
+
+.footprints {
+  height: 100%;
+  width: 29%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.topFootprint {
+  position: absolute;
+  top: -50px;
+  right: 0;
+}
+
+.bottomFootprint {
+  position: absolute;
+  bottom: 40px;
+  left: -40px;
+}
+
+.petsWrapper {
+  z-index: 10;
+  position: relative;
+}

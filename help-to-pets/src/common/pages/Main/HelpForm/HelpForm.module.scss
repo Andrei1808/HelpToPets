@@ -1,0 +1,106 @@
+@import '../src/common/styles/mixins';
+
+.container {
+  background: rgba(233, 233, 233, 1)
+}
+
+.wrapper {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 150px 0;
+}
+
+.info {
+  width: 60%;
+}
+
+.title {
+  font-family: 'Inter', sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  color: rgba(165, 203, 224, 1);
+}
+
+.more {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(165, 203, 224, 1);
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+}
+
+.socialInfo {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(165, 203, 224, 1);
+}
+
+.socialItem {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.formGroup {
+  width: 30%;
+  margin: 0 10px 0 0;
+}
+
+.notice {
+  text-align: right;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: rgba(165, 203, 224, 1);
+}
+
+.notice span {
+  color: red;
+}
+
+.formItems {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -3px -3px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 12px 0 0 0;
+}
+
+.formItem {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(164, 166, 172, 1);
+  border: none;
+  padding: 20px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.formItem:not(:last-child) {
+  border-bottom: 1px solid rgba(233, 233, 233, 1);
+}
+
+.formItems textarea {
+  resize: none;
+}
+
+.formButton {
+  @include button(rgba(165, 203, 224, 1), rgba(255, 255, 255, 1), rgba(165, 203, 224, 1));
+  display: block;
+  margin: 35px auto 0;
+  height: 35px;
+  width: 130px;
+
+}
