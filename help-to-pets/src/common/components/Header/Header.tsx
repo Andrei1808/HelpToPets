@@ -29,7 +29,7 @@ function Header(): React.ReactElement {
             <div className={classes.menu__item}>Início</div>
           </NavLink>
           <NavLink to="/" className={classes.link}>
-          <div className={classes.menu__item}>Centrais</div>
+            <div className={classes.menu__item}>Centrais</div>
           </NavLink>
           <div className={classes.menu__item}>Perdidos</div>
           <div className={classes.menu__item}>Achados</div>

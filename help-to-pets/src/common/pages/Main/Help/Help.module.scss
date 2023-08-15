@@ -9,6 +9,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 150px 0;
 }
 
@@ -21,6 +22,7 @@
   font-size: 35px;
   font-weight: 700;
   color: rgba(165, 203, 224, 1);
+  margin-bottom: 25px;
 }
 
 .more {
@@ -28,11 +30,13 @@
   font-size: 16px;
   font-weight: 400;
   color: rgba(165, 203, 224, 1);
+  margin-bottom: 25px;
 }
 
 .social {
   display: flex;
   flex-direction: column;
+  row-gap: 35px;
 }
 
 .socialInfo {
@@ -47,6 +51,7 @@
   align-items: center;
   width: fit-content;
   text-decoration: none;
+  column-gap: 10px;
 }
 
 .formGroup {
@@ -82,14 +87,12 @@
   color: rgba(164, 166, 172, 1);
   border: none;
   padding: 20px;
+  width: 100%;
+  display: block;
 
   &:focus {
     outline: none;
   }
-}
-
-.formItem:not(:last-child) {
-  border-bottom: 1px solid rgba(233, 233, 233, 1);
 }
 
 .formItems textarea {
@@ -102,5 +105,50 @@
   margin: 35px auto 0;
   height: 35px;
   width: 130px;
+
+  &:hover {
+    background-color: rgba(165, 203, 224, 0.5);
+    color: white;
+  }
+
+}
+
+.errorValidationMessage{
+  position: absolute;
+  font-family: "DM Sans";
+  font-weight: 700;
+  display: block;
+  bottom: 3px;
+  left: 20px;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  color: red;
+  transition-duration: 3s;
+}
+
+.inputWrapper{
+  position: relative;
+}
+
+.inputWrapper:not(:last-child) {
+  border-bottom: 1px solid rgba(233, 233, 233, 1);
+}
+
+
+@keyframes shake {
+
+  0%{
+    background: yellow;
+    width: 5000px;
+  }
+  50%{
+    background: green;
+    width: 0px;
+  }
+  100%{
+    background: blue;
+    width: 10000px;
+  }
 
 }

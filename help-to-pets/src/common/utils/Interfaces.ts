@@ -10,3 +10,10 @@ export interface PetInterface {
   pets: PetCardInterface[];
   pet: PetCardInterface;
 }
+
+export interface FormInterface {
+  name?: string;
+  email?: string;
+  message?: string;
+  item?: string;
+}

@@ -6,7 +6,7 @@ import CommunityInfo from './CommunityInfo/CommunityInfo';
 import CommunityInvite from './CommunityInvite/CommunityInvite';
 import StartScreen from './StartScreen/StartScreen';
 import Pets from './Pets/Pets';
-import HelpForm from './HelpForm/HelpForm';
+import Help from './Help/Help';
 
 function Main({ pets }: PetInterface): React.ReactElement {
   return (
@@ -18,7 +18,7 @@ function Main({ pets }: PetInterface): React.ReactElement {
       <CommunityDescription />
       <CommunityInfo />
       <CommunityInvite />
-      <HelpForm />
+      <Help />
     </main>
   );
 }
