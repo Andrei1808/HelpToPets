@@ -2,13 +2,16 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import classes from '../Help.module.scss';
 import { FormInterface } from '../../../../utils/Interfaces';
+import Input from '../../../../components/Input/Input';
+import Textarea from '../../../../components/Textarea/Textarea';
 
 function HelpForm(): React.ReactElement {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValidating, isDirty },
+    clearErrors,
+    formState: { errors },
   } = useForm<FormInterface>({
     mode: 'onChange',
   });
@@ -22,104 +25,72 @@ function HelpForm(): React.ReactElement {
         Preenchimento obrigatório<span>*</span>
       </h6>
       <form className={classes.formItems} onSubmit={onSubmit}>
-        <div className={classes.inputWrapper}>
-          <input
-            {...register('userName', {
-              required: 'Digite seu nome',
-              minLength: {
-                value: 2,
-                message: 'Mínimo 2 caracteres',
-              },
-            })}
-            className={classes.formItem}
-            maxLength="20"
-            type="text"
-            placeholder="Name*"
-            style={errors?.userName && { background: 'rgba(255, 216, 216, 1)' }}
-          />
-          {errors?.userName?.message && (
-            <span className={classes.errorValidationMessage}>
-              {errors.userName.message}
-            </span>
-          )}
-        </div>
-        <div className={classes.inputWrapper}>
-          <input
-            {...register('userEmail', {
-              required: 'Digite seu e-mail',
-              pattern: {
-                value:
-                  /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i,
-                message: 'E-mail inválido',
-              },
-            })}
-            className={classes.formItem}
-            maxLength="50"
-            type="text"
-            placeholder="Email*"
-            style={
-              errors?.userEmail && { background: 'rgba(255, 216, 216, 1)' }
-            }
-          />
-          {errors?.userEmail?.message && (
-            <span className={classes.errorValidationMessage}>
-              {errors.userEmail.message}
-            </span>
-          )}
-        </div>
-        <div className={classes.inputWrapper}>
-          <input
-            {...register('userItem', {
-              required: 'Digite o nome do assunto',
-              minLength: {
-                value: 3,
-                message: 'Mínimo 3 caracteres',
-              },
-              pattern: {
-                value: /^[A-Za-z]+$/,
-                message: 'Idioma errado',
-              },
-            })}
-            className={classes.formItem}
-            maxLength="40"
-            type="text"
-            placeholder="Assunto*"
-            style={errors?.userItem && { background: 'rgba(255, 216, 216, 1)' }}
-          />
-          {errors?.userItem?.message && (
-            <span className={classes.errorValidationMessage}>
-              {errors.userItem.message}
-            </span>
-          )}
-        </div>
-        <div className={classes.inputWrapper}>
-          <textarea
-            {...register('userMessage', {
-              required: 'Escreva sua mensagem',
-              minLength: {
-                value: 20,
-                message: 'Mínimo 20 caracteres',
-              },
-            })}
-            className={classes.formItem}
-            rows="5"
-            placeholder="Mensagem*"
-            style={
-              (errors?.userMessage && {
-                background: 'rgba(255, 216, 216, 1)',
-              }) ||
-              (!errors?.userMessage &&
-                isDirty && {
-                  background: 'green',
-                })
-            }
-          />
-          {errors?.userMessage?.message && (
-            <span className={classes.errorValidationMessage}>
-              {errors.userMessage.message}
-            </span>
-          )}
-        </div>
+        <Input
+          name="userName"
+          register={register}
+          placeholder="Name*"
+          type="text"
+          clearErrors={clearErrors}
+          errors={errors}
+          pattern={{
+            value: /[A-Za-z]/,
+            message: 'Digite seu nome',
+          }}
+          minLength={{
+            value: 2,
+            message: 'Mínimo 2 caracteres',
+          }}
+          required="Digite seu nome"
+        />
+        <Input
+          name="userEmail"
+          register={register}
+          placeholder="Email*"
+          clearErrors={clearErrors}
+          type="text"
+          errors={errors}
+          pattern={{
+            value:
+              /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i,
+            message: 'E-mail inválido',
+          }}
+          required="Digite seu nome"
+        />
+        <Input
+          name="userItem"
+          register={register}
+          placeholder="Assunto*"
+          clearErrors={clearErrors}
+          type="text"
+          errors={errors}
+          maxLength="40"
+          pattern={{
+            value: /[A-Za-z]/,
+            message: 'Idioma errado',
+          }}
+          minLength={{
+            value: 3,
+            message: 'Mínimo 3 caracteres',
+          }}
+          required="Digite o nome do assunto"
+        />
+        <Textarea
+          register={register}
+          type="text"
+          errors={errors}
+          name="userMessage"
+          placeholder="Mensagem*"
+          required="Escreva sua mensagem"
+          minLength={{
+            value: 20,
+            message: 'Mínimo 20 caracteres',
+          }}
+        />
+        {errors?.message && (
+          <span className={classes.errorValidationMessage}>
+            {errors?.message}
+          </span>
+        )}
       </form>
       <button className={classes.formButton} type="button" onClick={onSubmit}>
         Enviar
