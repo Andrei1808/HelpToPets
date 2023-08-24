@@ -1,16 +1,23 @@
-import React from 'react';
-import {FieldValues, Path, UseFormClearErrors, UseFormRegister, ValidationRule} from 'react-hook-form';
+import React, { CSSProperties } from 'react';
+import {
+  FieldError,
+  FieldValues,
+  Path,
+  UseFormClearErrors,
+  UseFormRegister,
+  ValidationRule,
+} from 'react-hook-form';
 import classes from '../../pages/Main/Help/Help.module.scss';
 
 export interface InputInterface<T extends FieldValues> {
   type: string;
-  placeholderText?: string;
+  placeholder?: string;
   name: Path<T>;
   minLength?: ValidationRule<number>;
   maxLength?: ValidationRule<number>;
-  required?: boolean;
+  required?: string;
   pattern?: ValidationRule<RegExp>;
-  errors?: object;
+  errors?: FieldError;
   disabled?: boolean;
   register: UseFormRegister<T>;
   clearErrors: UseFormClearErrors<T>;
@@ -23,11 +30,11 @@ function Input<T extends FieldValues>({
   placeholder,
   name,
   minLength,
-  maxLength,
   required,
   pattern,
   errors,
   register,
+  clearErrors,
 }: InputInterface<T>): React.ReactElement {
   return (
     <div className={classes.inputWrapper}>
@@ -35,32 +42,38 @@ function Input<T extends FieldValues>({
         className={classes.formItem}
         type={type}
         placeholder={placeholder || ''}
+        //use here clsx style.
         style={
-          errors?.[name]?.message && { background: 'rgba(255, 216, 216, 1)' }
+          errors?.message && {
+            background: 'rgba(255, 216, 216, 1)',
+          }
         }
         {...register(name, {
           required,
           minLength,
           pattern,
+          onChange: () => errors && clearErrors(name),
         })}
       />
-      {errors?.[name]?.message && (
+      {errors?.message && (
         <span className={classes.errorValidationMessage}>
-          {errors?.[name]?.message}
+          {errors?.message}
         </span>
       )}
     </div>
   );
 }
 
-// Input.defaultProps = {
-//   placeholder: '',
-//   errors: undefined,
-//   disabled: false,
-//   maxLength: 100,
-//   minLength: 0,
-//   required: false,
-//   pattern: undefined,
-// };
+Input.defaultProps = {
+  placeholder: '',
+  errors: undefined,
+  disabled: undefined,
+  maxLength: undefined,
+  minLength: undefined,
+  required: true,
+  pattern: undefined,
+};
 
 export default Input;
+
+

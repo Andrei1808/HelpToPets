@@ -1,11 +1,3 @@
-import {
-  FieldValues,
-  Path,
-  UseFormClearErrors,
-  UseFormRegister,
-  ValidationRule,
-} from 'react-hook-form';
-
 export interface PetCardInterface {
   id?: number;
   name: string;
@@ -20,12 +12,12 @@ export interface PetInterface {
 }
 
 export interface FormInterface {
-  name: Path<FieldValues>;
+  name?: string;
+  email?: string;
+  message?: string;
+  item?: string;
   userName: string;
   userEmail: string;
   userItem: string;
   userMessage: string;
-  email?: string;
-  message?: string;
-  item?: string;
 }

@@ -27,14 +27,14 @@ function Textarea<T extends FieldValues>({
         rows="5"
         placeholder={placeholder || ''}
         style={
-          errors?.[name]?.message && {
+          errors?.message && {
             background: 'rgba(255, 216, 216, 1)',
           }
         }
       />
-      {errors?.[name]?.message && (
+      {errors?.message && (
         <span className={classes.errorValidationMessage}>
-          {errors?.[name].message}
+          {errors?.message}
         </span>
       )}
     </div>
