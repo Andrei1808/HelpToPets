@@ -1,7 +1,22 @@
 import React from 'react';
-import { FieldValues } from 'react-hook-form';
+import { FieldError, FieldValues, Path, UseFormClearErrors, UseFormRegister, ValidationRule } from 'react-hook-form';
 import classes from '../../pages/Main/Help/Help.module.scss';
-import { InputInterface } from '../../utils/Interfaces';
+
+export interface TextareaInterface<T extends FieldValues> {
+  type: string;
+  placeholder?: string;
+  name: Path<T>;
+  minLength?: ValidationRule<number>;
+  maxLength?: ValidationRule<number>;
+  required?: string;
+  pattern?: ValidationRule<RegExp>;
+  errors?: FieldError;
+  disabled?: boolean;
+  register: UseFormRegister<T>;
+  clearErrors: UseFormClearErrors<T>;
+  max?: ValidationRule<string | number>;
+  min?: ValidationRule<string | number>;
+}
 
 function Textarea<T extends FieldValues>({
   errors,
@@ -14,7 +29,7 @@ function Textarea<T extends FieldValues>({
   placeholder,
   min,
   max,
-}: InputInterface<T>): React.ReactElement {
+}: TextareaInterface<T>): React.ReactElement {
   return (
     <div className={classes.inputWrapper}>
       <textarea
@@ -24,7 +39,7 @@ function Textarea<T extends FieldValues>({
           pattern,
         })}
         className={classes.formItem}
-        rows="5"
+        rows={5}
         placeholder={placeholder || ''}
         style={
           errors?.message && {
